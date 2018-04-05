@@ -1,43 +1,40 @@
+#!/usr/bin/env node
 const puppeteer = require("puppeteer");
+const p = require("./secret");
+require("shelljs/global");
+
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    ignoreHTTPSErrors: true,
-    devtools: true,
-    slowMo: 250
+    fullPage: true,
+    ignoreHTTPSErrors: true
+    // devtools: true,
+    // slowMo: 250
   });
   const page = await browser.newPage();
-  await page.goto("https://www.baidu.com", {
+  await page.goto(p.cas + p.mioffice, {
     waitUntil: "networkidle2"
   });
 
-  page.once("load", () => console.log("Page loaded!"));
-  //   page.on("request", () => console.log("Page request!"));
-  //   page.on("response", () => console.log("Page response!"));
-  page.once("domcontentloaded", () => {
-    console.log("domcontentloaded ok");
-  });
+  // page.once("request", req => {
+  //   console.log("Page request!");
+  //   console.log(req);
+  //   // >表示重新写入,>>表示继续写入
+  //   exec(`echo ${JSON.stringify(req._postData)} > req.js`);
+  // });
+  // page.once("response", resp => {
+  //   console.log("Page response!");
+  //   console.log(resp);
+  //   // >表示重新写入,>>表示继续写入
+  //   exec(`echo ${JSON.stringify(resp._url)} > resp.js`);
+  // });
 
   //   await page.waitFor(2000);
-  //   Page.$$eval(selector, pageFunction[, …args]), 获取单个元素的属性
 
-  await page.type("#kw", "Hello World!", { delay: 100 });
+  await page.type("#username", p.username);
+  await page.type("#password", p.password);
   await page.keyboard.press("Enter");
 
-  //   await page.waitForSelector("#kw");
-  //   await page.click("#kw");
-
-  //   await page.keyboard.type("Hello World!", { delay: 100 });
-  //   await page.keyboard.press("Enter");
-
-  //   await page.screenshot({
-  //     path: "screenshot.png",
-  //     type: "png",
-  //     fullPage: true
-  //   });
-
-  let inputElement = await page.$(".t.c-gap-bottom-small a");
-  inputElement.click();
-  console.log("over");
+  await console.log("over");
   //   await browser.close();
 })();

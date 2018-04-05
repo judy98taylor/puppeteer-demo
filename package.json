@@ -1,0 +1,24 @@
+{
+  "name": "puppeteer-demo",
+  "version": "1.0.0",
+  "description": "puppeteer",
+  "main": "test.js",
+  "dependencies": {
+    "puppeteer": "^1.2.0",
+    "shelljs": "^0.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zd9027/puppeteer-demo.git"
+  },
+  "author": "Rena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zd9027/puppeteer-demo/issues"
+  },
+  "homepage": "https://github.com/zd9027/puppeteer-demo#readme"
+}

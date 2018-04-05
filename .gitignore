@@ -1,5 +1,7 @@
 node_modules
 .vscode/
 secret.js
+dist
+dist.zip
 req.js
 resp.js

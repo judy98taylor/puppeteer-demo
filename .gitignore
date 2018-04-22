@@ -5,3 +5,4 @@ dist
 dist.zip
 req.js
 resp.js
+.DS_Store
